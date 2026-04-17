@@ -150,9 +150,10 @@ Next step: sketch pages in Figma, return with designs to build from.
 - Schema design ✓
 - API design ✓
 - Caching strategy ✓ (React Query)
+- Folder structure ✓
+- Backend scaffold ✓ (FastAPI, all 5 resources, full CRUD, live on Supabase)
 - Frontend structure — pending Figma designs
-- Folder structure — not started
-- Backend scaffold — not started
+- Frontend scaffold — not started
 
 ## Phased Roadmap
 | Phase | Focus |
@@ -207,3 +208,10 @@ After significant product decisions:
 ## Key Files
 - `PRD.md` — full product requirements document
 - `CLAUDE.md` — this file
+- `CHANGELOG.md` — technical version history
+- `backend/main.py` — FastAPI app entry point
+- `backend/models.py` — SQLAlchemy ORM models (all 5 tables)
+- `backend/database.py` — DB connection and session management
+- `backend/routes/` — one file per resource (runs, lifts, nutrition, sleep, weight)
+- `backend/requirements.txt` — Python dependencies
+- `backend/.env` — local secrets (not committed)
