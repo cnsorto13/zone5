@@ -5,6 +5,36 @@ Format: version · date · what changed · why
 
 ---
 
+## [v0.3] — 2026-04-18
+
+### Frontend
+- Scaffolded Vite + React frontend under `frontend/`
+- `src/tokens.css` — full Sorto Design System token set (colors, type, spacing, radii, shadows)
+- `src/index.css` — global reset wired to brand tokens
+- React Router v6 configured — 5 routes: `/`, `/log`, `/history`, `/analytics`, `/timeline`
+- `TopNav` component — sticky nav, active route underline indicator, date display
+- `Ring` component — SVG progress ring (used for calorie tracking)
+- `Sparkline` component — lightweight SVG polyline chart (used for weight trend)
+- Dashboard page built on V6 wireframe layout (editorial hero + narrative timeline)
+- Hero section: dark `#1C0F07` background, three-column big-number layout
+  - Philippine Gold `#D4780A` for training and calorie stats
+  - Papel Picado `#8B1A6B` reserved for NYC marathon countdown — the one altar pop
+- Timeline: narrative day-as-it-unfolds with logged/active/pending states
+- Sidebar: calendar week strip, coach signal card, day-at-a-glance grid
+- Log, History, Analytics, Timeline pages stubbed — ready for Phase 2 build-out
+- All data is mock — API wiring planned for Phase 2
+
+### Design
+- Brand kit imported from Sorto Design System handoff (SortoLiving property)
+- Design direction locked: V6 hybrid (V3 big-number hero + V4 narrative timeline)
+- Wireframes sourced from Claude Design export (5 low-fi directions explored)
+- Decided to skip Figma iteration — build directly in React against brand tokens
+
+### Documentation
+- `CLAUDE.md` updated to reflect Phase 1 frontend scaffold complete
+
+---
+
 ## [v0.2] — 2026-04-17
 
 ### Backend
