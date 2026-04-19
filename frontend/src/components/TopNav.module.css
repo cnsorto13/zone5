@@ -1,0 +1,94 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-7);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-canvas);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--anchor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--anchor);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--fg-1);
+  letter-spacing: -0.02em;
+}
+
+.links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.link {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fg-3);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 150ms ease;
+}
+
+.link:hover {
+  color: var(--fg-1);
+}
+
+.active {
+  color: var(--fg-1);
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--anchor);
+  border-radius: 1px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.date {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-3);
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border-default);
+}

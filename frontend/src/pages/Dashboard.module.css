@@ -1,0 +1,393 @@
+.page {
+  padding: var(--space-5) var(--space-7);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ── Editorial hero ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  background: #1C0F07;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-7);
+  align-items: start;
+}
+
+.heroCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.heroColBordered {
+  border-left: 1px solid rgba(242, 226, 192, 0.15);
+  border-right: 1px solid rgba(242, 226, 192, 0.15);
+  padding: 0 var(--space-6);
+}
+
+.heroEyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 226, 192, 0.5);
+}
+
+.heroBigNum {
+  font-family: var(--font-display);
+  font-size: 96px;
+  font-weight: 600;
+  color: #D4780A;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin: var(--space-2) 0 var(--space-1);
+}
+
+.heroBigNumAlt {
+  color: #8B1A6B;
+}
+
+.heroSub {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: #F2E2C0;
+}
+
+.heroDetail {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(242, 226, 192, 0.55);
+}
+
+.heroBar {
+  height: 4px;
+  background: rgba(242, 226, 192, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: var(--space-2);
+}
+
+.heroBarFill {
+  height: 100%;
+  background: var(--anchor);
+  border-radius: 3px;
+}
+
+.heroSparkLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: rgba(242, 226, 192, 0.35);
+  margin-top: 2px;
+}
+
+/* ── Body layout ── */
+.body {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* ── Timeline ── */
+.timelineCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.timelineHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.timelineTitle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--fg-1);
+  letter-spacing: -0.02em;
+}
+
+.timelineMeta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-3);
+}
+
+.timeline {
+  border-left: 2px solid var(--border-default);
+  padding-left: var(--space-5);
+  margin-left: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.timelineRow {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.dot {
+  position: absolute;
+  left: calc(-1 * var(--space-5) - 5px);
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface-canvas);
+  border: 1.5px dashed var(--border-default);
+  flex-shrink: 0;
+}
+
+.dotDone {
+  background: color-mix(in srgb, var(--anchor) 30%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--anchor) 50%, transparent);
+}
+
+.dotActive {
+  background: var(--anchor);
+  border: 1.5px solid var(--anchor);
+}
+
+.timelineContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.timelineMono {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--fg-muted);
+}
+
+.timelineItemTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--fg-1);
+  line-height: 1.15;
+}
+
+.timelineItemActive {
+  color: var(--anchor);
+}
+
+.timelineItemSub {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--fg-3);
+  margin-top: 2px;
+}
+
+.timelineBtn {
+  padding: 4px 12px;
+  background: transparent;
+  color: var(--fg-2);
+  border: 1px solid var(--border-default);
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.timelineBtnActive {
+  background: var(--anchor);
+  color: #fff;
+  border-color: var(--anchor);
+}
+
+/* ── Right side column ── */
+.sideCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ── Card base ── */
+.card {
+  background: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: 0 1px 3px rgba(28,15,7,0.06);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-3);
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin-bottom: var(--space-1);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--fg-1);
+  letter-spacing: -0.01em;
+}
+
+/* ── Week strip ── */
+.weekStrip {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.dayCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.dayLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--fg-3);
+}
+
+.dayCell {
+  width: 100%;
+  height: 32px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-muted);
+}
+
+.done {
+  background: color-mix(in srgb, var(--anchor) 20%, transparent);
+  border-color: color-mix(in srgb, var(--anchor) 40%, transparent);
+  color: var(--anchor);
+}
+
+.today {
+  border: 1.5px solid var(--anchor);
+  color: var(--fg-1);
+}
+
+/* ── Toggle ── */
+.toggle {
+  display: inline-flex;
+  border: 1px solid var(--border-default);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.toggleBtn {
+  padding: 3px 12px;
+  background: transparent;
+  color: var(--fg-3);
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.toggleActive {
+  background: var(--fg-1);
+  color: var(--surface-canvas);
+}
+
+/* ── Coach card ── */
+.coachCard {
+  background: color-mix(in srgb, var(--anchor) 6%, transparent);
+  border: 1.5px solid var(--anchor);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.coachBadge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--anchor);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.coachEyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--anchor);
+  margin-bottom: var(--space-1);
+}
+
+.coachText {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--fg-1);
+  line-height: 1.5;
+}
+
+/* ── Day at a glance ── */
+.glanceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.glanceGrid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.glanceNum {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--fg-1);
+}
+
+.glanceLabel {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  color: var(--fg-3);
+}
