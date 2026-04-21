@@ -205,6 +205,23 @@ After significant product decisions:
 3. Connect product decisions to the PRD principles
 4. Flag scope creep early
 
+## Local Dev Setup
+
+Zone 5 backend always runs on **port 8001** (port 8000 is occupied by a separate Fitness app).
+
+```bash
+make backend    # start backend only (http://localhost:8001)
+make frontend   # start frontend only (http://localhost:5173)
+make dev        # start both concurrently
+make health     # confirm Zone 5 API is alive
+```
+
+Always confirm it's the right app before logging data:
+```bash
+curl http://localhost:8001/health
+# {"status": "ok", "app": "zone5", ...}
+```
+
 ## Key Files
 - `PRD.md` — full product requirements document
 - `CLAUDE.md` — this file
