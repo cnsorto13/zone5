@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
@@ -22,7 +22,7 @@ class WeightCreate(BaseModel):
 class WeightOut(WeightCreate):
     """Shape of the response — everything in WeightCreate plus id and created_at."""
     id: int
-    created_at: str
+    created_at: datetime
 
     class Config:
         from_attributes = True

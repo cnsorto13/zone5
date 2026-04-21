@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
@@ -27,7 +27,7 @@ class RunCreate(BaseModel):
 class RunOut(RunCreate):
     """Shape of the response — everything in RunCreate plus id and created_at."""
     id: int
-    created_at: str
+    created_at: datetime
 
     class Config:
         from_attributes = True  # allows Pydantic to read from SQLAlchemy model objects

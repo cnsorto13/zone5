@@ -1,4 +1,4 @@
-from datetime import date, time
+from datetime import date, datetime, time
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
@@ -24,7 +24,7 @@ class SleepCreate(BaseModel):
 class SleepOut(SleepCreate):
     """Shape of the response — everything in SleepCreate plus id and created_at."""
     id: int
-    created_at: str
+    created_at: datetime
 
     class Config:
         from_attributes = True

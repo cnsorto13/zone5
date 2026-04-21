@@ -5,6 +5,30 @@ Format: version · date · what changed · why
 
 ---
 
+## [v0.5] — 2026-04-20
+
+### Bug Fix
+- `routes/lifts.py`, `runs.py`, `nutrition.py`, `sleep.py`, `weight.py` — fixed `created_at: str` response schema to `created_at: datetime` across all 5 routes; Pydantic v2 won't coerce a datetime object to str, causing every GET and POST to return 500
+
+---
+
+## [v0.4] — 2026-04-20
+
+### Backend
+- `main.py` — added `redirect_slashes=False` to fix POST requests silently failing via 307 redirect
+- `main.py` — added `/health` endpoint returning `{"status": "ok", "app": "zone5", "timestamp": ...}`
+
+### Dev
+- Added `Makefile` — `make backend`, `make frontend`, `make dev`, `make health`
+- Zone 5 backend locked to port 8001 (port 8000 reserved by separate Fitness app)
+- `CLAUDE.md` updated with Local Dev Setup section
+
+### Product
+- Notion workspace created: Zone 5 → Product Backlog
+- Backlog populated: Phase 2 logging stories (Z5-001–009), Security (Z5-010–012), Site Reliability (Z5-013–016)
+
+---
+
 ## [v0.3] — 2026-04-18
 
 ### Frontend
