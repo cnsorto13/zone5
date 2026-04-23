@@ -5,6 +5,17 @@ Format: version · date · what changed · why
 
 ---
 
+## [v0.6] — 2026-04-23
+
+### Frontend
+- `pages/History.jsx` + `History.module.css` — built full History page; tabbed by resource (run/lift/nutrition/sleep/weight), compact rows sorted newest-first, empty state with link to /log, error state
+- `pages/Dashboard.jsx` — replaced all mock data with live API calls; hero shows today's logged run or planned target; calories/macros from nutrition API; weight sparkline from last 10 entries; week streak from actual run dates; days to NYC calculated live
+- `trainingPlan.js` — 12-week training plan (Apr 20–Jul 12, 2026) loaded as a static JS date map; each day carries run type, distance, HR targets, and lift type (legs/push/pull); dashboard reads this to show planned vs. logged state
+- `api.js` — added `byDate()` on nutrition and sleep resources
+- `TopNav` — logo now navigates home on click with hover fade; switched from NavLink to Link to avoid spurious active underline on brand
+
+---
+
 ## [v0.5] — 2026-04-20
 
 ### Bug Fix
