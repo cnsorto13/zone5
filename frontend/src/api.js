@@ -24,10 +24,12 @@ export const api = {
   },
   nutrition: {
     list: () => req('/nutrition/'),
+    byDate: (date) => req(`/nutrition/by-date?date=${date}`),
     create: (body) => req('/nutrition/', { method: 'POST', body: JSON.stringify(body) }),
   },
   sleep: {
     list: () => req('/sleep/'),
+    byDate: (date) => req(`/sleep/by-date?date=${date}`),
     create: (body) => req('/sleep/', { method: 'POST', body: JSON.stringify(body) }),
   },
   weight: {

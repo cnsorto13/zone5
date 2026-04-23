@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import styles from './TopNav.module.css';
 
 const NAV_ITEMS = [
@@ -14,10 +14,10 @@ export default function TopNav() {
 
   return (
     <nav className={styles.nav}>
-      <div className={styles.brand}>
+      <Link to="/" className={styles.brand}>
         <div className={styles.logo}>5</div>
         <span className={styles.wordmark}>zone 5</span>
-      </div>
+      </Link>
 
       <div className={styles.links}>
         {NAV_ITEMS.map(({ label, to }) => (
