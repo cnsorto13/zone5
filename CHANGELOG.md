@@ -5,6 +5,43 @@ Format: version · date · what changed · why
 
 ---
 
+## [v0.7] — 2026-05-01
+
+### Design System
+- `tokens.css` — expanded Sorto Design System tokens: full warm-sand/parchment/volcanic tint scales (10–80), type scale (`--size-display-xl` through `--size-micro`), weight/line-height/letter-spacing tokens, motion (`--ease-sorto`, duration tokens), extended shadows, layout tokens (`--maxw-editorial/content/marketing`, `--gutter`), `.sorto-dark` dark mode class
+- `index.css` — wired h1–h4 base styles to type scale tokens; link styles to `--link`/`--link-hover`; `:focus-visible` ring to `--focus-ring` (Philippine Gold)
+
+### Components
+- `SunMark.jsx` — new shared SVG component; 8-ray sun in Philippine Gold; used as a brand throughline across Log and Dashboard
+- `TopNav.jsx` / `TopNav.module.css` — redesigned brand mark: SunMark + "Zone *5*" (italic 5 in anchor green) + "SORTOLIVING" eyebrow tag; CS monogram avatar replacing generic dot
+
+### Log Page
+- `Log.jsx` — full redesign from Claude Design handoff; 5-tab system with `01`–`05` numerals (italic + underline on active tab); per-tab card with fade-in animation; SunMark corner accent
+  - RunForm: 4-col grid (date / distance / duration / HR), feel segment picker (1–5), notes
+  - LiftForm: 2-col (date, type dropdown), rating picker, notes
+  - NutritionForm: date, 4-col macro inputs (calories / protein / carbs / fat), live macro split bar
+  - SleepForm: date + big hours display + range slider, bedtime/wake inputs, quality picker, notes
+  - WeightForm: 3-col (date / weight / body fat optional), notes
+- `Log.module.css` — full rewrite: underline-only input pattern, tabbed card system, feel segment animation, macro bar, submit row with ghost/primary buttons
+
+### Dashboard Page
+- `Dashboard.jsx` — full redesign from Claude Design handoff; all existing `useQuery` hooks preserved, real API data wired throughout
+  - Greeting block: time-of-day greeting ("Good morning/afternoon/evening,"), italic anchor-green name, serif sub-copy from plan context, "Log a meal" + primary CTA buttons
+  - TodayRunCard (dark volcanic, 6 of 12 cols): shows actual run or planned target with 4-stat row (distance / pace / HR / time); SunMark corner accent; altar-red eyebrow rule
+  - CaloriesRingCard (3 cols): SVG circle progress ring wired to real `nutrition` data; macro bars (carbs/protein/fat) with per-goal progress fills; kcal remaining footer row
+  - NYCCountdownCard (3 cols): big days number in anchor green; weeks/days sub-line; phase ribbon (Base → Build → Peak → Taper) with diagonal stripe for current block
+  - DayTimeline: hour-anchored vertical timeline (5a–10p), spine line, "Now" badge on altar-red current-time rule; events positioned by fractional hour with big run card (dark), food/sleep nodes
+  - WeekCalendar: 7-day grid from actual `runsList` + training plan; intensity bars color-coded by run type (easy=forest, tempo=altar-red, long=mahogany, recovery=warm-sand); today cell highlighted; mileage done/total header
+  - CoachSignal: dark volcanic card with real plan quote, altar-red rule, week/sleep/fuel signal grid
+  - Glance: 6-metric 2×3 icon grid (runs/calories/sleep/weight/protein/days to NYC)
+- `Dashboard.module.css` — full rewrite to match new layout; 12-col hero grid, body 2-col, all card variants, timeline event positioning, week day cells, glance icon circles
+
+### Bug Fixes
+- `Dashboard.jsx`, `Log.jsx` — fixed date one-day-ahead bug: replaced `toISOString().slice(0,10)` (UTC) with local `getFullYear()/getMonth()/getDate()` construction
+- `History.jsx` — fixed blank lift type: API returns `type` field, not `lift_type`
+
+---
+
 ## [v0.6] — 2026-04-23
 
 ### Frontend
