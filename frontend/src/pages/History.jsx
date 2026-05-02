@@ -70,7 +70,7 @@ function LiftRows({ data }) {
       {data.map((r) => (
         <div key={r.id} className={styles.row}>
           <span className={styles.date}>{r.date}</span>
-          <span className={styles.primary}>{r.lift_type}</span>
+          <span className={styles.primary}>{r.type}</span>
           {r.duration_mins && <span className={styles.secondary}>{r.duration_mins} min</span>}
           <span className={styles.note}>{r.notes || ''}</span>
         </div>

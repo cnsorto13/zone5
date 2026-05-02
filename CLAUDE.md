@@ -16,7 +16,7 @@ the code.
 ## Athlete / User Context
 - **Name:** Christian Sorto, 26, Alexandria VA
 - **Primary goal:** NYC Marathon, November 2, 2026 — sub 4:00 (9:09/mi)
-- **Training:** 4 runs/week + 3 lifts/week
+- **Training:** 4 runs/week + 3 lifts/week (Mon/Wed/Fri, drops to 2 then 1 as mileage peaks)
 - **This app is built for him first** — personal tool that doubles as a live portfolio
 
 ## Product Vision
@@ -123,6 +123,11 @@ Notes:
   POST, GET, GET?date, PUT/{id}, DELETE/{id}
 
 /dashboard  ←  Phase 3, TBD
+
+/coach/summary  ←  Scoped, pending build
+  GET — returns structured coaching briefing: current phase/week, today's workout,
+  runs this week vs plan, nutrition adherence (7 days), avg sleep, weight trend.
+  Reads from TRAINING.md + LIFTING.md. No AI yet — logic only.
 ```
 
 Notes:
@@ -226,6 +231,8 @@ curl http://localhost:8001/health
 - `PRD.md` — full product requirements document
 - `CLAUDE.md` — this file
 - `CHANGELOG.md` — technical version history
+- `TRAINING.md` — 12-week running plan (Apr 20 – Jul 12). Phases, weekly mileage, HR zones.
+- `LIFTING.md` — lifting plan (Mon/Wed/Fri). Exercises, sets, reps, progression tracker, HIIT menu.
 - `backend/main.py` — FastAPI app entry point
 - `backend/models.py` — SQLAlchemy ORM models (all 5 tables)
 - `backend/database.py` — DB connection and session management

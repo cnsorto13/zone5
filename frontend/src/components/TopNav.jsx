@@ -1,4 +1,5 @@
 import { NavLink, Link } from 'react-router-dom';
+import SunMark from './SunMark';
 import styles from './TopNav.module.css';
 
 const NAV_ITEMS = [
@@ -10,13 +11,15 @@ const NAV_ITEMS = [
 ];
 
 export default function TopNav() {
-  const today = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-
   return (
     <nav className={styles.nav}>
       <Link to="/" className={styles.brand}>
-        <div className={styles.logo}>5</div>
-        <span className={styles.wordmark}>zone 5</span>
+        <SunMark size={24} />
+        <div className={styles.wordmarkWrap}>
+          <span className={styles.wordmark}>Zone</span>
+          <em className={styles.wordmarkNum}>5</em>
+          <span className={styles.sortoTag}>SortoLiving</span>
+        </div>
       </Link>
 
       <div className={styles.links}>
@@ -33,8 +36,7 @@ export default function TopNav() {
       </div>
 
       <div className={styles.meta}>
-        <span className={styles.date}>{today.toLowerCase()}</span>
-        <div className={styles.avatar} />
+        <div className={styles.avatar}>CS</div>
       </div>
     </nav>
   );

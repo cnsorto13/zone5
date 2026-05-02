@@ -1,61 +1,168 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  /* Base */
+  /* ── Base ── */
   --volcanic-black: #1C0F07;
   --mahogany-earth: #5C2D0A;
   --parchment:      #F2E2C0;
   --warm-sand:      #C4956A;
   --dark-umber:     #3D2B1F;
 
-  /* Tints */
-  --warm-sand-30:   #C4956A4d;
+  /* Warm Sand tints */
+  --warm-sand-80:   #C4956Acc;
   --warm-sand-60:   #C4956A99;
+  --warm-sand-40:   #C4956A66;
+  --warm-sand-30:   #C4956A4d;
+  --warm-sand-20:   #C4956A33;
+  --warm-sand-10:   #C4956A1a;
+
+  /* Parchment tints */
+  --parchment-80:   #F2E2C0cc;
+  --parchment-60:   #F2E2C099;
+  --parchment-40:   #F2E2C066;
+  --parchment-20:   #F2E2C033;
+  --parchment-10:   #F2E2C01a;
   --parchment-deep: #E8D3A8;
 
-  /* Anchors */
+  /* Volcanic tints */
+  --volcanic-80:    #1C0F07cc;
+  --volcanic-60:    #1C0F0799;
+  --volcanic-40:    #1C0F0766;
+  --volcanic-20:    #1C0F0733;
+  --volcanic-10:    #1C0F071a;
+
+  /* ── Anchors ── */
   --tropical-forest: #2E5436;
   --philippine-gold: #D4780A;
 
-  /* Altar pops — ONE per design */
+  /* Zone 5 = SortoLiving */
+  --anchor: var(--tropical-forest);
+
+  /* ── Altar pops — ONE per design ── */
   --cempasuchil:    #E8A820;
   --altar-red:      #C4200A;
   --papel-picado:   #8B1A6B;
   --cobalt-night:   #1A4A8B;
 
-  /* Sun accents */
+  /* ── Sun accents ── */
   --sampaguita-ember: #E85C1A;
   --pacific-teal:     #1E6B6B;
 
-  /* Semantic */
-  --surface-canvas:  var(--parchment);
-  --surface-raised:  #F8EED2;
-  --surface-sunken:  var(--parchment-deep);
-  --fg-1: var(--volcanic-black);
-  --fg-2: var(--mahogany-earth);
-  --fg-3: var(--warm-sand);
-  --fg-muted: #8B6A4A;
-  --border-subtle: var(--warm-sand-30);
+  /* ── Semantic — surfaces ── */
+  --surface-canvas:    var(--parchment);
+  --surface-raised:    #F8EED2;
+  --surface-sunken:    var(--parchment-deep);
+  --surface-inverse:   var(--volcanic-black);
+  --surface-card-dark: var(--dark-umber);
+
+  /* ── Semantic — foreground ── */
+  --fg-1:          var(--volcanic-black);
+  --fg-2:          var(--mahogany-earth);
+  --fg-3:          var(--warm-sand);
+  --fg-muted:      #8B6A4A;
+  --fg-on-dark:    var(--parchment);
+  --fg-on-dark-muted: var(--warm-sand);
+
+  /* ── Semantic — borders ── */
+  --border-subtle:  var(--warm-sand-30);
   --border-default: var(--warm-sand-60);
+  --border-strong:  var(--mahogany-earth);
+  --border-on-dark: var(--mahogany-earth);
 
-  /* Zone 5 = SortoLiving */
-  --anchor: var(--tropical-forest);
+  /* ── Semantic — interactive ── */
+  --focus-ring: var(--philippine-gold);
+  --link:       var(--mahogany-earth);
+  --link-hover: var(--sampaguita-ember);
 
-  /* Type */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-sans:    'Work Sans', system-ui, sans-serif;
-  --font-mono:    'JetBrains Mono', monospace;
+  /* ── Type — families ── */
+  --font-display: 'Cormorant Garamond', 'Cormorant', 'Georgia', serif;
+  --font-serif:   'Lora', 'Georgia', 'Cambria', serif;
+  --font-sans:    'Work Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:    'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
 
-  /* Spacing */
-  --space-1: 4px;  --space-2: 8px;  --space-3: 12px;
-  --space-4: 16px; --space-5: 24px; --space-6: 32px;
-  --space-7: 48px;
+  /* ── Type — scale ── */
+  --size-display-xl: 72px;
+  --size-display-lg: 56px;
+  --size-display-md: 44px;
+  --size-h1:      36px;
+  --size-h2:      28px;
+  --size-h3:      22px;
+  --size-h4:      18px;
+  --size-body-lg: 18px;
+  --size-body:    16px;
+  --size-body-sm: 14px;
+  --size-caption: 13px;
+  --size-micro:   11px;
 
-  /* Radii */
-  --radius-sm: 2px; --radius-md: 4px;
-  --radius-lg: 8px; --radius-xl: 16px;
+  /* ── Type — weights ── */
+  --wt-reg:  400;
+  --wt-med:  500;
+  --wt-semi: 600;
+  --wt-bold: 700;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(28,15,7,0.06), 0 1px 3px rgba(28,15,7,0.04);
-  --shadow-md: 0 4px 8px rgba(28,15,7,0.08), 0 2px 4px rgba(28,15,7,0.06);
+  /* ── Type — line heights ── */
+  --lh-tight:    1.1;
+  --lh-snug:     1.25;
+  --lh-base:     1.5;
+  --lh-relax:    1.7;
+
+  /* ── Type — letter spacing ── */
+  --ls-tight:   -0.02em;
+  --ls-normal:   0;
+  --ls-wide:     0.04em;
+  --ls-eyebrow:  0.12em;
+
+  /* ── Spacing — 4px base ── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* ── Radii ── */
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-xl:   16px;
+  --radius-full: 9999px;
+
+  /* ── Shadows — warm, earthy ── */
+  --shadow-sm:    0 1px 2px rgba(28,15,7,0.06), 0 1px 3px rgba(28,15,7,0.04);
+  --shadow-md:    0 4px 8px rgba(28,15,7,0.08), 0 2px 4px rgba(28,15,7,0.06);
+  --shadow-lg:    0 12px 24px rgba(28,15,7,0.12), 0 4px 8px rgba(28,15,7,0.08);
+  --shadow-xl:    0 24px 48px rgba(28,15,7,0.18), 0 8px 16px rgba(28,15,7,0.10);
+  --shadow-inner: inset 0 2px 4px rgba(28,15,7,0.08);
+
+  /* ── Motion ── */
+  --ease-sorto:     cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:       150ms;
+  --dur-base:       250ms;
+  --dur-slow:       400ms;
+  --dur-editorial:  600ms;
+
+  /* ── Layout ── */
+  --maxw-editorial: 680px;
+  --maxw-content:   960px;
+  --maxw-marketing: 1200px;
+  --gutter:         48px;
+  --gutter-mobile:  24px;
+}
+
+/* ── Dark mode ── */
+.sorto-dark {
+  --surface-canvas:  var(--volcanic-black);
+  --surface-raised:  var(--dark-umber);
+  --surface-sunken:  #13090440;
+  --fg-1:        var(--parchment);
+  --fg-2:        var(--warm-sand);
+  --fg-3:        #8B6A4A;
+  --border-subtle:  var(--mahogany-earth);
+  --border-default: var(--mahogany-earth);
+  --link:       var(--cempasuchil);
+  --link-hover: var(--sampaguita-ember);
 }

@@ -1,393 +1,987 @@
+/* ── Page shell ── */
 .page {
-  padding: var(--space-5) var(--space-7);
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: 16px;
 }
 
-/* ── Editorial hero ── */
+/* ── Greeting ── */
+.greeting {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 36px 32px 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.greetEyebrow {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--anchor);
+  font-family: var(--font-sans);
+  margin-bottom: 10px;
+}
+
+.greetTitle {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.05;
+  color: var(--volcanic-black);
+}
+
+.greetTitle em {
+  font-style: italic;
+  color: var(--anchor);
+}
+
+.greetSub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--fg-2);
+  margin: 10px 0 0;
+  max-width: 540px;
+  line-height: 1.55;
+}
+
+.greetActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Buttons (shared) ── */
+.btnGhost {
+  background: transparent;
+  border: 1px solid var(--warm-sand-60);
+  color: var(--fg-1);
+  padding: 10px 16px;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnPrimary {
+  background: var(--anchor);
+  border: 1px solid var(--anchor);
+  color: var(--parchment);
+  padding: 10px 18px;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Hero 12-col grid ── */
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0;
-  background: #1C0F07;
-  border-radius: var(--radius-lg);
-  padding: var(--space-6) var(--space-7);
-  align-items: start;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  padding: 0 32px;
 }
 
-.heroCol {
+/* ── Card base ── */
+.card {
+  background: var(--surface-raised);
+  border: 1px solid var(--warm-sand-30);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── TodayRun card (dark, span 6) ── */
+.todayCard {
+  grid-column: span 6;
+  background: var(--volcanic-black);
+  border: 1px solid var(--mahogany-earth);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  min-height: 268px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 18px;
+  box-shadow: var(--shadow-sm);
 }
 
-.heroColBordered {
-  border-left: 1px solid rgba(242, 226, 192, 0.15);
-  border-right: 1px solid rgba(242, 226, 192, 0.15);
-  padding: 0 var(--space-6);
+.sunCorner {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  opacity: 0.85;
+}
+
+.heroEyebrowRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.heroRule {
+  width: 20px;
+  height: 2px;
+  background: var(--anchor);
+  flex-shrink: 0;
+}
+
+.heroRuleRed {
+  background: var(--altar-red);
 }
 
 .heroEyebrow {
-  font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(242, 226, 192, 0.5);
+  color: var(--anchor);
+  font-family: var(--font-sans);
 }
 
-.heroBigNum {
+.heroEyebrowRed { color: var(--altar-red); }
+
+.runTitle {
   font-family: var(--font-display);
-  font-size: 96px;
+  font-size: 44px;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--parchment);
+  margin: 0;
+}
+
+.runSub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--warm-sand);
+  margin-top: 6px;
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--mahogany-earth);
+  padding-top: 16px;
+}
+
+.statBlock {
+  padding-right: 12px;
+  padding-left: 0;
+}
+
+.statBlock + .statBlock {
+  border-left: 1px solid var(--mahogany-earth);
+  padding-left: 16px;
+  padding-right: 0;
+}
+
+.statBlock + .statBlock + .statBlock { padding-right: 12px; }
+.statBlock + .statBlock + .statBlock + .statBlock { padding-right: 0; }
+
+.statLabel {
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-sand);
+  font-weight: 500;
+  font-family: var(--font-sans);
+}
+
+.statVal {
+  font-family: var(--font-display);
+  font-size: 30px;
   font-weight: 600;
-  color: #D4780A;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  margin: var(--space-2) 0 var(--space-1);
+  color: var(--parchment);
+  margin-top: 4px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
 }
 
-.heroBigNumAlt {
-  color: #8B1A6B;
+.statValMono {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 500;
 }
 
-.heroSub {
+.statUnit {
+  font-size: 12px;
+  color: var(--warm-sand);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* ── Calories card (span 3) ── */
+.caloriesCard {
+  grid-column: span 3;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 268px;
+}
+
+.ringWrap {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.macroList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.macroItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.macroHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+  margin-bottom: 4px;
+}
+
+.macroName {
+  color: var(--fg-2);
+  font-weight: 500;
+}
+
+.macroNum {
+  font-family: var(--font-mono);
+  color: var(--fg-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.macroMuted { color: var(--fg-muted); }
+
+.macroTrack {
+  height: 3px;
+  background: var(--warm-sand-30);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.macroFill {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.burnRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--fg-2);
+  padding-top: 12px;
+  border-top: 1px solid var(--warm-sand-30);
+  margin-top: auto;
+}
+
+.burnNum {
+  font-family: var(--font-mono);
+  color: var(--fg-1);
+}
+
+/* ── Countdown card (span 3) ── */
+.countdownCard {
+  grid-column: span 3;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 268px;
+  background: linear-gradient(180deg, var(--surface-raised) 0%, var(--parchment-deep) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.raceName {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 500;
-  color: #F2E2C0;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  color: var(--volcanic-black);
+  line-height: 1.1;
 }
 
-.heroDetail {
+.raceMeta {
+  font-size: 12px;
+  color: var(--fg-2);
+  margin-top: 4px;
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: rgba(242, 226, 192, 0.55);
 }
 
-.heroBar {
-  height: 4px;
-  background: rgba(242, 226, 192, 0.15);
-  border-radius: 3px;
+.daysRow {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.daysNum {
+  font-family: var(--font-display);
+  font-size: 80px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--anchor);
+}
+
+.daysLabel {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--fg-2);
+  margin-left: 6px;
+}
+
+.weeksDetail {
+  font-size: 12px;
+  color: var(--fg-2);
+  margin-top: -10px;
+  font-family: var(--font-mono);
+}
+
+.phaseWrap {
+  margin-top: auto;
+}
+
+.phaseEyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-family: var(--font-sans);
+}
+
+.phaseHighlight { color: var(--anchor); }
+
+.phaseBar {
+  display: flex;
+  height: 6px;
+  border-radius: 2px;
   overflow: hidden;
-  margin-top: var(--space-2);
+  background: var(--warm-sand-30);
 }
 
-.heroBarFill {
-  height: 100%;
-  background: var(--anchor);
-  border-radius: 3px;
+.phaseLabels {
+  display: flex;
+  margin-top: 4px;
 }
 
-.heroSparkLabel {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: rgba(242, 226, 192, 0.35);
-  margin-top: 2px;
+.phaseLabel {
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  font-weight: 400;
+}
+
+.phaseLabelActive {
+  color: var(--anchor);
+  font-weight: 600;
 }
 
 /* ── Body layout ── */
 .body {
   display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  gap: var(--space-6);
-  align-items: start;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: flex-start;
+  padding: 0 32px;
 }
 
-/* ── Timeline ── */
-.timelineCol {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+/* ── Timeline card ── */
+.timelineCard {
+  overflow: hidden;
 }
 
-.timelineHeader {
+.timelineHead {
+  padding: 20px 24px 14px;
+  border-bottom: 1px solid var(--warm-sand-30);
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
+  justify-content: space-between;
 }
 
 .timelineTitle {
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 600;
-  color: var(--fg-1);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  color: var(--volcanic-black);
+  margin: 4px 0 0;
 }
 
-.timelineMeta {
+.timelineInner {
+  position: relative;
+  padding: 20px 24px 24px;
+}
+
+.hourTick {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  border-top: 1px dashed var(--warm-sand-30);
+}
+
+.hourLabel {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--fg-3);
+  color: var(--fg-muted);
+  position: absolute;
+  top: -6px;
+  left: 0;
+  background: var(--surface-raised);
+  padding-right: 6px;
 }
 
-.timeline {
-  border-left: 2px solid var(--border-default);
-  padding-left: var(--space-5);
-  margin-left: var(--space-2);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+.spine {
+  position: absolute;
+  left: 76px;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: var(--warm-sand-40);
 }
 
-.timelineRow {
-  position: relative;
+.nowLine {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: var(--altar-red);
+  z-index: 2;
+}
+
+.nowBadge {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  background: var(--altar-red);
+  color: var(--volcanic-black);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+}
+
+.event {
+  position: absolute;
+  left: 24px;
+  right: 24px;
   display: flex;
   align-items: flex-start;
-  gap: var(--space-3);
+  gap: 12px;
 }
 
-.dot {
-  position: absolute;
-  left: calc(-1 * var(--space-5) - 5px);
-  top: 4px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--surface-canvas);
-  border: 1.5px dashed var(--border-default);
+.eventForecast { opacity: 0.62; }
+
+.eventTime {
+  width: 48px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-2);
+  text-align: right;
+  padding-top: 8px;
+  font-variant-numeric: tabular-nums;
   flex-shrink: 0;
 }
 
-.dotDone {
-  background: color-mix(in srgb, var(--anchor) 30%, transparent);
-  border: 1.5px solid color-mix(in srgb, var(--anchor) 50%, transparent);
-}
-
-.dotActive {
-  background: var(--anchor);
-  border: 1.5px solid var(--anchor);
-}
-
-.timelineContent {
+.eventNode {
+  position: relative;
+  width: 28px;
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  justify-content: center;
+  padding-top: 5px;
+  flex-shrink: 0;
+}
+
+.eventDot {
+  border-radius: var(--radius-full);
+  border: 1px solid var(--warm-sand-60);
+  background: var(--surface-sunken);
+  color: var(--mahogany-earth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
+.eventDotBig {
+  width: 28px;
+  height: 28px;
+  background: var(--anchor);
+  border-color: var(--anchor);
+  color: var(--parchment);
+  box-shadow: var(--shadow-md);
+}
+
+.eventContent {
   flex: 1;
+  padding: 4px 0;
 }
 
-.timelineMono {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--fg-muted);
+.eventContentBig {
+  background: var(--volcanic-black);
+  color: var(--parchment);
+  border: 1px solid var(--mahogany-earth);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
 }
 
-.timelineItemTitle {
-  font-family: var(--font-display);
-  font-size: 22px;
+.eventLabel {
+  font-size: 13.5px;
   font-weight: 500;
   color: var(--fg-1);
-  line-height: 1.15;
-}
-
-.timelineItemActive {
-  color: var(--anchor);
-}
-
-.timelineItemSub {
   font-family: var(--font-sans);
+}
+
+.eventLabelBig {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--parchment);
+}
+
+.eventSub {
   font-size: 12px;
-  color: var(--fg-3);
+  color: var(--fg-2);
   margin-top: 2px;
 }
 
-.timelineBtn {
-  padding: 4px 12px;
-  background: transparent;
-  color: var(--fg-2);
-  border: 1px solid var(--border-default);
-  border-radius: 9999px;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: border-color 150ms ease, color 150ms ease;
+.eventSubItalic {
+  font-family: var(--font-serif);
+  font-style: italic;
 }
 
-.timelineBtnActive {
-  background: var(--anchor);
-  color: #fff;
-  border-color: var(--anchor);
+.eventSubBig { color: var(--warm-sand); }
+
+.eventStats {
+  display: flex;
+  gap: 18px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--mahogany-earth);
 }
 
-/* ── Right side column ── */
+.eventStat {
+  display: flex;
+  flex-direction: column;
+}
+
+.eventStatVal {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--altar-red);
+  font-weight: 500;
+}
+
+.eventStatKey {
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-sand);
+}
+
+/* ── Side column ── */
 .sideCol {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: 16px;
 }
 
-/* ── Card base ── */
-.card {
-  background: var(--surface-raised);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
-  box-shadow: 0 1px 3px rgba(28,15,7,0.06);
+/* ── Week calendar ── */
+.weekCard {
+  padding: 22px;
 }
 
-.cardHeader {
+.weekHead {
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--space-3);
+  margin-bottom: 14px;
 }
 
-.eyebrow {
-  display: block;
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--fg-3);
-  margin-bottom: var(--space-1);
-}
-
-.cardTitle {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--fg-1);
-  letter-spacing: -0.01em;
-}
-
-/* ── Week strip ── */
-.weekStrip {
+.weekHeadLeft {
   display: flex;
-  gap: var(--space-2);
-}
-
-.dayCol {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: var(--space-1);
+  gap: 10px;
 }
 
-.dayLabel {
+.weekMiles {
   font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--fg-3);
+  font-size: 11px;
+  color: var(--fg-2);
+}
+
+.weekMilesDone {
+  color: var(--anchor);
+  font-weight: 600;
+}
+
+.weekGrid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
 }
 
 .dayCell {
-  width: 100%;
-  height: 32px;
+  border: 1px solid var(--warm-sand-30);
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
+  padding: 10px 8px;
+  min-height: 102px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 11px;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.dayCellToday {
+  border: 1.5px solid var(--altar-red);
+  background: var(--surface-raised);
+}
+
+.dayCellRest { opacity: 0.55; }
+
+.dayLetter {
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--fg-muted);
+  font-weight: 600;
 }
 
-.done {
-  background: color-mix(in srgb, var(--anchor) 20%, transparent);
-  border-color: color-mix(in srgb, var(--anchor) 40%, transparent);
-  color: var(--anchor);
+.dayLetterToday { color: var(--altar-red); }
+
+.dayNum {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--volcanic-black);
+  margin-top: 2px;
+  letter-spacing: -0.02em;
 }
 
-.today {
-  border: 1.5px solid var(--anchor);
-  color: var(--fg-1);
-}
-
-/* ── Toggle ── */
-.toggle {
-  display: inline-flex;
-  border: 1px solid var(--border-default);
-  border-radius: 9999px;
-  overflow: hidden;
-}
-
-.toggleBtn {
-  padding: 3px 12px;
-  background: transparent;
-  color: var(--fg-3);
-  border: none;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  cursor: pointer;
-  transition: background 150ms ease, color 150ms ease;
-}
-
-.toggleActive {
-  background: var(--fg-1);
-  color: var(--surface-canvas);
-}
-
-/* ── Coach card ── */
-.coachCard {
-  background: color-mix(in srgb, var(--anchor) 6%, transparent);
-  border: 1.5px solid var(--anchor);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
+.dayBody {
   display: flex;
-  gap: var(--space-3);
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
 }
 
-.coachBadge {
-  width: 28px;
-  height: 28px;
+.dayRunLabel {
+  font-size: 10.5px;
+  color: var(--fg-1);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dayBarTrack {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--warm-sand-30);
+  position: relative;
+}
+
+.dayBarFill {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.dayMi {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-2);
+}
+
+.dayRestLabel {
+  font-size: 10px;
+  color: var(--fg-muted);
+  font-family: var(--font-serif);
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.peakDot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: var(--anchor);
-  color: #fff;
+  background: var(--mahogany-earth);
+}
+
+.weekLegend {
+  display: flex;
+  gap: 14px;
+  font-size: 10.5px;
+  color: var(--fg-2);
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--warm-sand-30);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legendSwatch {
+  width: 8px;
+  height: 2px;
+  display: inline-block;
+}
+
+/* ── Coach signal card (dark) ── */
+.coachCard {
+  padding: 22px;
+  background: var(--volcanic-black);
+  border: 1px solid var(--mahogany-earth);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.coachQuote {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--parchment);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+}
+
+.coachAttrib {
+  font-size: 11px;
+  color: var(--warm-sand);
+  font-family: var(--font-serif);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.signalGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--mahogany-earth);
+}
+
+.signalItem {}
+
+.signalKey {
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-sand);
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-family: var(--font-sans);
+}
+
+.signalValRow {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.signalVal {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--parchment);
+}
+
+.signalDir {
+  font-size: 10.5px;
+  font-family: var(--font-mono);
+  color: var(--altar-red);
+}
+
+.signalScale {
+  font-size: 11px;
+  color: var(--warm-sand);
+  margin-top: 2px;
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+/* ── Glance card ── */
+.glanceCard {
+  padding: 22px;
+}
+
+.glanceHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.glanceHeadLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.glanceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.glanceItem {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.glanceItemLeft {
+  border-right: 1px solid var(--warm-sand-30);
+  padding-right: 14px;
+}
+
+.glanceItemRight {
+  padding-left: 14px;
+}
+
+.glanceBorderB {
+  border-bottom: 1px solid var(--warm-sand-30);
+}
+
+.glanceIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--surface-sunken);
+  border: 1px solid var(--warm-sand-30);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 600;
+  color: var(--mahogany-earth);
   flex-shrink: 0;
 }
 
-.coachEyebrow {
-  display: block;
+.glanceText { min-width: 0; flex: 1; }
+
+.glanceKey {
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  font-weight: 600;
   font-family: var(--font-sans);
-  font-size: 10px;
+}
+
+.glanceValRow {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.glanceVal {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--volcanic-black);
+}
+
+.glanceUnit {
+  font-size: 11px;
+  color: var(--fg-muted);
+  font-family: var(--font-mono);
+}
+
+.glanceSide {
+  font-size: 10.5px;
+  color: var(--fg-2);
+  margin-top: 1px;
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* ── Eyebrow / Rule shared in cards ── */
+.cardEyebrowRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.cardRule {
+  width: 28px;
+  height: 2px;
+  background: var(--anchor);
+  flex-shrink: 0;
+}
+
+.cardEyebrow {
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--anchor);
-  margin-bottom: var(--space-1);
-}
-
-.coachText {
   font-family: var(--font-sans);
-  font-size: 13px;
-  color: var(--fg-1);
-  line-height: 1.5;
 }
 
-/* ── Day at a glance ── */
-.glanceGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-3);
-  margin-top: var(--space-3);
-}
+.cardEyebrowRed { color: var(--altar-red); }
+.cardRuleRed { background: var(--altar-red); }
 
-.glanceGrid > div {
+/* ── Page footer ── */
+.footer {
+  padding: 20px 32px 48px;
+  border-top: 1px solid var(--warm-sand-30);
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.glanceNum {
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--fg-muted);
   font-family: var(--font-mono);
-  font-size: 16px;
-  color: var(--fg-1);
-}
-
-.glanceLabel {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  color: var(--fg-3);
+  margin-top: 16px;
 }
